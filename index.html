@@ -1,153 +1,202 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Võ Thành Danh</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Phạm Yến Ngân - Giới thiệu cá nhân</title>
 
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        background: #e8f0ff;
-        font-family: Arial, sans-serif;
-        overflow-x: hidden;
+  <style>
+    :root{
+      --yellow:#F8D94A;
+      --yellow-dark:#C7A400;
+      --bg1:#1A1605;
+      --bg2:#0f0c03;
+      --text:#fffef2;
+      --muted:#fff9cc;
+      --card:#2c2408;
+      --radius:18px;
+      --shadow:0 10px 35px rgba(0,0,0,0.55);
+      font-family: 'Poppins', sans-serif;
     }
 
-    /* Khung chứa */
-    .container {
-        display: flex;
-        gap: 30px;
-        max-width: 900px;
-        margin: 50px auto;
-        background: white;
-        padding: 25px;
-        border-radius: 15px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-        position: relative;
-        z-index: 10;
-        animation: fadeIn 1s ease-in-out;
+    *{box-sizing:border-box; margin:0; padding:0}
+    body{
+      background:linear-gradient(180deg, var(--bg1), var(--bg2));
+      color:var(--text);
+      padding:30px;
+      animation: fadeIn 1.2s ease;
     }
 
-    /* Avatar trái */
-    .avatar {
-        width: 220px;
-        height: 220px;
-        border-radius: 15px;
-        object-fit: cover;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-    }
-
-    /* Text phải */
-    .info h1 {
-        margin-top: 0;
-        color: #1d3557;
-    }
-
-    .slogan {
-        font-style: italic;
-        font-size: 18px;
-        color: #457b9d;
-        margin-bottom: 15px;
-    }
-
-    .info p {
-        font-size: 16px;
-        line-height: 1.6;
-    }
-
-    /* Hiệu ứng fade */
     @keyframes fadeIn {
-        from {opacity: 0; transform: translateY(20px);}
-        to {opacity: 1; transform: translateY(0);}
+      from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:none;}
     }
 
-    /* Nút trở lại */
-    .back {
-        text-align: center;
-        margin-top: 20px;
-    }
-    .back a {
-        text-decoration: none;
-        padding: 10px 20px;
-        background: #1d3557;
-        color: white;
-        border-radius: 8px;
-        transition: 0.3s;
-    }
-    .back a:hover {
-        background: #457b9d;
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+      display:flex;
+      flex-direction:column;
+      gap:30px;
     }
 
-    /* Hiệu ứng tuyết rơi */
-    .snowflake {
-        position: fixed;
-        top: -10px;
-        color: white;
-        font-size: 1em;
-        pointer-events: none;
-        animation: fall linear infinite;
+    /* Header */
+    header{display:flex;justify-content:space-between;align-items:center; margin-bottom:10px;}
+
+    .logo{
+      display:flex; align-items:center; gap:15px;
+      animation: slideIn 1s ease;
     }
 
-    @keyframes fall {
-        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-        100% { transform: translateY(100vh) rotate(360deg); opacity: 0.3; }
+    @keyframes slideIn {
+      from{opacity:0; transform:translateX(-40px);} to{opacity:1; transform:none;}
     }
-</style>
+
+    .mark{
+      background:linear-gradient(135deg, var(--yellow), var(--yellow-dark));
+      width:60px; height:60px;
+      border-radius:14px;
+      display:flex; justify-content:center; align-items:center;
+      font-weight:700; color:#2a2100;
+      font-size:20px;
+      box-shadow:var(--shadow);
+    }
+
+    .lead{color:var(--muted); font-size:14px; margin-top:3px}
+
+    /* Card */
+    .card{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.08);
+      padding:22px;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(6px);
+      animation: pop 0.9s ease;
+    }
+
+    @keyframes pop{
+      from{opacity:0; transform:scale(0.95);} to{opacity:1; transform:scale(1);}
+    }
+
+    /* Intro */
+    .intro{
+      display:grid; grid-template-columns:320px 1fr;
+      gap:25px; align-items:center;
+    }
+
+    .avatar{
+      width:230px; height:230px; border-radius:16px; overflow:hidden;
+      border:4px solid rgba(255,255,255,0.1);
+      box-shadow:var(--shadow);
+      animation: float 4s infinite ease-in-out;
+    }
+
+    @keyframes float{
+      0%{transform:translateY(0);} 
+      50%{transform:translateY(-8px);} 
+      100%{transform:translateY(0);}  
+    }
+
+    .avatar img{width:100%; height:100%; object-fit:cover}
+
+    .name{font-size:24px; font-weight:700; margin-top:10px}
+    .role{color:var(--muted); font-size:14px; margin-top:3px}
+
+    .intro-right p{color:var(--muted); line-height:1.7; margin-top:6px}
+
+
+    /* Group Section */
+    .pill{
+      background:rgba(255,255,255,0.08);
+      padding:6px 12px;
+      display:inline-block;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.1);
+      margin-bottom:8px;
+    }
+
+    h2,h3{color:var(--yellow)}
+
+    footer{
+      margin-top:20px;
+      text-align:center;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media(max-width:860px){
+      .intro{grid-template-columns:1fr; text-align:center}
+      .avatar{margin:0 auto}
+    }
+  </style>
 </head>
 
 <body>
+  <div class="container">
 
-<!-- Khung giới thiệu -->
-<div class="container">
-    <img class="avatar" src="https://raw.githubusercontent.com/vothanhdanh5890-beep/thanhdanh0gay.github.io/refs/heads/main/images%20(1).jpg" alt="Võ Thành Danh">
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <div class="mark">YN</div>
+        <div>
+          <h1>Phạm Yến Ngân</h1>
+          <p class="lead">Trang giới thiệu cá nhân</p>
+        </div>
+      </div>
+    </header>
 
-    <div class="info">
-        <h1>Võ Thành Danh</h1>
-        <p class="slogan">"Sáng tạo không có giới hạn – chỉ có deadline giới hạn tôi!"</p>
 
-        <h3>Tính cách</h3>
-        <p>Hài hước, thân thiện, lúc nào cũng là người khuấy động không khí trong nhóm.</p>
+    <!-- Khung 1 -->
+    <section class="card intro">
 
-        <h3>Sở thích</h3>
-        <p>Chụp ảnh, nghe nhạc chill và xem phim tình cảm nhẹ nhàng.</p>
+      <!-- Left -->
+      <div class="intro-left" style="text-align:center">
+        <div class="avatar">
+          <img src="https://github.com/vothanhdanh5890-beep/thanhdanh0gay.github.io/blob/main/avatar%201.jpg?raw=true" alt="Avatar">
+        </div>
+        <div class="name">Phạm Yến Ngân</div>
+        <div class="role">Học sinh / Thành viên nhóm</div>
+      </div>
 
-        <h3>Sở trường</h3>
-        <p>Thiết kế đẹp mắt, trình bày slide, và giữ tinh thần đoàn kết cho cả nhóm.</p>
-    </div>
-</div>
+      <!-- Right -->
+      <div class="intro-right">
+        <h2>Giới thiệu ngắn</h2>
+        <p>
+          Xin chào! Mình là <strong>Phạm Yến Ngân</strong>. Điểm mạnh của mình là sự tỉ mỉ, trách nhiệm và khả năng làm việc nhóm rất tốt. Mình luôn hoàn thành nhiệm vụ đúng hạn và thích hỗ trợ mọi người trong nhóm khi cần.
+        </p>
+        <p>
+          Điểm yếu mình đang cải thiện là đôi khi hơi cầu toàn, dẫn đến mất nhiều thời gian cho các chi tiết nhỏ. Ngoài ra, mình cũng đang học cách tự tin hơn khi trình bày trước đám đông.
+        </p>
+        <p>
+          Sở thích của mình gồm nghe nhạc, làm đồ thủ công, trang trí, và xem những video truyền cảm hứng phát triển bản thân.
+        </p>
+      </div>
 
-<!-- Nút quay lại -->
-<div class="back">
-    <a href="https://vothanhdanh5890-beep.github.io/thanhdanh0gay.github.io/">⬅ Quay lại trang chủ</a>
-</div>
+    </section>
 
-<!-- Script tạo tuyết -->
-<script>
-    function createSnow() {
-        const snow = document.createElement("div");
-        snow.className = "snowflake";
-        snow.innerHTML = "❄";
 
-        // Vị trí ngẫu nhiên
-        snow.style.left = Math.random() * window.innerWidth + "px";
+    <!-- Khung 2 -->
+    <section class="card">
+      <div class="pill">Phân công & Vai trò</div>
+      <h3>Cánh tay phải của trưởng nhóm</h3>
 
-        // Kích thước ngẫu nhiên
-        snow.style.fontSize = (Math.random() * 10 + 10) + "px";
+      <p style="color:var(--muted); line-height:1.75; margin-top:10px">
+        Trong nhóm, mình đảm nhận vai trò như <strong>cánh tay phải của trưởng nhóm</strong>. Mình hỗ trợ kiểm tra tiến độ, nhắc nhở deadline, và giúp trưởng nhóm giải quyết những vấn đề nhỏ để mọi thứ diễn ra suôn sẻ hơn. 
+        <br><br>
+        Khi các thành viên gặp khó khăn, mình là người lắng nghe đầu tiên và tìm cách hỗ trợ, giúp kết nối mọi người lại với nhau. Mình cũng phụ trách truyền đạt thông tin, đảm bảo mọi thành viên đều hiểu rõ nhiệm vụ và mục tiêu chung.
+        <br><br>
+        Vai trò này giúp mình rèn luyện sự chủ động, khả năng giao tiếp và xử lý tình huống — những yếu tố quan trọng để xây dựng một tập thể đoàn kết và hiệu quả.
+      </p>
+    </section>
 
-        // Thời gian rơi
-        snow.style.animationDuration = (Math.random() * 3 + 3) + "s";
 
-        document.body.appendChild(snow);
+    <footer>
+      © <span id="year"></span> Phạm Yến Ngân — Trang giới thiệu cá nhân
+    </footer>
+  </div>
 
-        // Xoá tuyết sau khi rơi
-        setTimeout(() => {
-            snow.remove();
-        }, 6000);
-    }
-
-    setInterval(createSnow, 150);
-</script>
-
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
